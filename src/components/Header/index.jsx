@@ -1,10 +1,10 @@
 import Navigation from "./Navigation";
 import Top from "./Top";
 
-const Header = () => (
+const Header = ({list}) => (
   <header>
     <Top />
-    <Navigation />
+    <Navigation list={list} />
   </header>
 );
 
