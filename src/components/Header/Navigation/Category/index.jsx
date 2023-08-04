@@ -1,18 +1,17 @@
-import { NavLink, useLocation } from "react-router-dom";
-import style from "./Category.module.scss";
+import { useSelector } from "react-redux";
+import { NavLink } from "react-router-dom";
 import classNames from "classnames";
+import style from "./Category.module.scss";
 
-const Category = ({ list }) => {
-  const location = useLocation();
-  const gender = location.pathname.split("/")[1] || "women";
-  const categoriesList = list.find((item) => item.link === gender);
+const Category = () => {
+  const { activeGender, categories } = useSelector((state) => state.navigation);
 
   return (
     <ul className={style.category}>
-      {categoriesList.categories.map((item) => (
-        <li key={item.link} className={style.item}>
+      {categories[activeGender]?.list?.map((item) => (
+        <li key={item.slug} className={style.item}>
           <NavLink
-            to={`${gender}/${item.link}`}
+            to={`${activeGender}/${item.slug}`}
             className={({ isActive }) =>
               classNames(style.link, isActive && style.linkActive)
             }
