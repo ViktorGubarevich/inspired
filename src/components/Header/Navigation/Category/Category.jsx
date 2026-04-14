@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import classNames from "classnames";
 import style from "./Category.module.scss";
 
-const Category = () => {
+export const Category = () => {
   const { activeGender, categories } = useSelector((state) => state.navigation);
 
   return (
@@ -11,7 +11,7 @@ const Category = () => {
       {categories[activeGender]?.list?.map((item) => (
         <li key={item.slug} className={style.item}>
           <NavLink
-            to={`${activeGender}/${item.slug}`}
+            to={`/catalog/${activeGender}/${item.slug}`}
             className={({ isActive }) =>
               classNames(style.link, isActive && style.linkActive)
             }
@@ -23,5 +23,3 @@ const Category = () => {
     </ul>
   );
 };
-
-export default Category;

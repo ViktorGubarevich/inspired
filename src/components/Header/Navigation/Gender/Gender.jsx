@@ -3,7 +3,7 @@ import style from "./Gender.module.scss";
 import classNames from "classnames";
 import { useSelector } from "react-redux";
 
-const Gender = () => {
+export const Gender = () => {
   const { activeGender, genderList, categories } = useSelector(
     (state) => state.navigation
   );
@@ -13,7 +13,7 @@ const Gender = () => {
       {genderList.map((gender) => (
         <li key={gender} className={style.item}>
           <NavLink
-            to={gender}
+            to={`/catalog/${gender}`}
             className={({ isActive }) =>
               classNames(
                 style.link,
@@ -28,5 +28,3 @@ const Gender = () => {
     </ul>
   );
 };
-
-export default Gender;

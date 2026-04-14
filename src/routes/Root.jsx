@@ -1,42 +1,15 @@
 import { Outlet } from "react-router-dom";
 
-import Header from "../components/Header";
-import Footer from "../components/Footer";
-import Main from "../components/Layout/Main";
+import { Header } from "../components/Header/Header";
+import { MainLayout } from "../components/Layout/MainLayout/MainLayout";
+import { Footer } from "../components/Footer/Footer";
 
-const list = [
-  {
-    link: "women",
-    title: "Женщины",
-    categories: [
-      { link: "bras", title: "Бюстгалтеры" },
-      { link: "panties", title: "Трусы" },
-      { link: "socks", title: "Носки" },
-      { link: "bathrobes", title: "Халаты" },
-      { link: "thermal", title: "Термобелье" },
-      { link: "pajamas", title: "Пижамы" },
-    ],
-  },
-  {
-    link: "men",
-    title: "Мужчины",
-    categories: [
-      { link: "panties", title: "Трусы" },
-      { link: "socks", title: "Носки" },
-      { link: "bathrobes", title: "Халаты" },
-      { link: "thermal", title: "Термобелье" },
-    ],
-  },
-];
-
-const Root = () => (
+export const Root = () => (
   <>
-    <Header list={list} />
-    <Main>
+    <Header />
+    <MainLayout>
       <Outlet />
-    </Main>
-    <Footer list={list} />
+    </MainLayout>
+    <Footer />
   </>
 );
-
-export default Root;

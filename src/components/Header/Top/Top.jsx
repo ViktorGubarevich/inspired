@@ -2,11 +2,11 @@ import classnames from "classnames";
 import style from "./Top.module.scss";
 
 import logo from "/src/assets/logo.svg";
-import Container from "../../Layout/Container";
+import { ContainerLayout } from "../../Layout/ContainerLayout/ContainerLayout";
 
-const Top = () => (
+export const Top = () => (
   <div className={style.top}>
-    <Container className={style.topContainer}>
+    <ContainerLayout className={style.topContainer}>
       <a
         href="tel:89304902620"
         className={classnames(style.topLink, style.topPhone)}
@@ -91,8 +91,6 @@ const Top = () => (
           </li>
         </ul>
       </div>
-    </Container>
+    </ContainerLayout>
   </div>
 );
-
-export default Top;
